@@ -1,3 +1,4 @@
+black
 flask-compress
 Flask-Bcrypt
 Flask-Login
