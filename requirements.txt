@@ -12,3 +12,4 @@ werkzeug
 requests
 validators
 flask-talisman
+Authlib
