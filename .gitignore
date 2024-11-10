@@ -163,6 +163,3 @@ cython_debug/
 
 !requirements.txt
 *.txt
-*.sh
-flask_session
-test/
