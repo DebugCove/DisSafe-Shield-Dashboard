@@ -164,3 +164,5 @@ cython_debug/
 !requirements.txt
 *.txt
 flask_session/
+.vscode/
+test_app.py
