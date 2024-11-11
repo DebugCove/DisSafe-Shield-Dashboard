@@ -74,4 +74,4 @@ if __name__ == "__main__":
         PORT = getenv('PRODUCTION')
         app.run(port=PORT, debug=DEBUG, host=HOST)
     else:
-        raise ValueError('Status inválido')
+        raise ValueError('Status invalid')
