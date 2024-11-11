@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from os import getenv, urandom
 from flask import Flask, redirect, url_for, session, render_template
 from flask_session import Session
