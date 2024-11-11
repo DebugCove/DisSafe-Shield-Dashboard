@@ -3,6 +3,8 @@ from flask import Flask, redirect, url_for, session, render_template
 from flask_session import Session
 from authlib.integrations.flask_client import OAuth
 
+from config.json_handler import load_config
+
 
 app = Flask(__name__)
 app.secret_key = urandom(24)
@@ -59,4 +61,16 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=3003)
+    load_dotenv()
+    status = load_config()['status']
+    DEBUG = getenv('DEBUG')
+    HOST = str(getenv('HOST'))
+
+    if status == 'development':
+        PORT = getenv('DEVELOPMENT')
+        app.run(port=PORT, debug=DEBUG, host=HOST)
+    elif status == 'production':
+        PORT = getenv('PRODUCTION')
+        app.run(port=PORT, debug=DEBUG, host=HOST)
+    else:
+        raise ValueError('Status inválido')
