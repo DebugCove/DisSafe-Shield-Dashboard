@@ -118,4 +118,6 @@ development
 .vscode/
 flask_session/
 .vscode/
-test_app.py
+
+app/tests/
+app/modules/main/main_tests.py
