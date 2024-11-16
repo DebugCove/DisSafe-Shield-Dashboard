@@ -22,12 +22,18 @@ def callback():
     from app.initialize_functions import oauth
     token = oauth.discord.authorize_access_token()
     user = oauth.discord.get('users/@me').json()
+
+    avatar_url = f"https://cdn.discordapp.com/avatars/{user['id']}/{user['avatar']}.png" \
+        if user.get('avatar') else f"https://cdn.discordapp.com/embed/avatars/{int(user['discriminator']) % 5}.png"
+
     session['user'] = {
         'id': user['id'],
         'username': user['username'],
-        'avatar': user['avatar']
+        'discriminator': user['discriminator'],
+        'avatar_url': avatar_url
     }
     return redirect(url_for('main.dashboard'))
+
 
 @main_bp.route('/dashboard')
 def dashboard():
